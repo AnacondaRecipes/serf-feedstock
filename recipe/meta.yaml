@@ -8,6 +8,8 @@ source:
   fn:  serf-{{ version }}.tar.bz2
   url: https://archive.apache.org/dist/serf/serf-{{ version }}.tar.bz2
   sha256: be81ef08baa2516ecda76a77adf7def7bc3227eeb578b9a33b45f7b41dc064e6
+  patches:
+    - SConstruct.diff
 
 build:
   skip: True # [s390x or aarch64]
@@ -17,8 +19,6 @@ build:
     - {{ pin_subpackage('serf', max_pin='x.x') }}
   ignore_run_exports:
     - expat
-  patches:
-    - SConstruct.diff
 
 requirements:
   build:
