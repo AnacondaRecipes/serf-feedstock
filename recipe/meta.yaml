@@ -10,12 +10,15 @@ source:
   sha256: be81ef08baa2516ecda76a77adf7def7bc3227eeb578b9a33b45f7b41dc064e6
 
 build:
+  skip: True # [s390x or aarch64]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/serf/
     # They keep changing soname b/w patch versions :'(
     - {{ pin_subpackage('serf', max_pin='x.x') }}
   ignore_run_exports:
     - expat
+  patches:
+    - SConstruct.diff
 
 requirements:
   build:
