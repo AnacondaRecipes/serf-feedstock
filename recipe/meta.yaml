@@ -25,11 +25,15 @@ requirements:
     - patch     # [not win]
     - m2-patch  # [win]
   host:
-    - apr
+    - libapr
+    - libaprutil
     - openssl
     - scons
     - zlib
     - expat
+  run:
+    - libapr
+    - libaprutil
 
   build:
     - {{ compiler('c') }}
