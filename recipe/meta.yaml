@@ -12,6 +12,8 @@ source:
     - SConstruct.diff
 
 build:
+  build: 0
+  skip: True # [s390x or aarch64]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/serf/
     # They keep changing soname b/w patch versions :'(
@@ -26,7 +28,7 @@ requirements:
   host:
     - libapr
     - libaprutil
-    - openssl
+    - openssl {{ openssl }}
     - scons
     - zlib
     - expat
@@ -56,13 +58,13 @@ test:
 
 
 about:
-  home: http://serf.apache.org/
-  license: Apache License 2.0
+  home: https://serf.apache.org/
+  license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
   summary: High performance C-based HTTP client library
   description: |
     Serf is a simple web server. It is a development tool to be used during the
     development of rich internet applications.It is not intended for deployment.
-  doc_url: https://pythonhosted.org/serf/
-  dev_url: https://www.openhub.net/p/serf
+  doc_url: https://serf.apache.org/
+  dev_url: https://serf.apache.org/contribute
