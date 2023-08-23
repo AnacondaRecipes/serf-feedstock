@@ -34,6 +34,7 @@ requirements:
   run:
     - libapr
     - libaprutil
+    - openssl # pin handled through openssl run_exports
 
   build:
     - {{ compiler('c') }}
