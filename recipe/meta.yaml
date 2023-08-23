@@ -55,7 +55,8 @@ test:
     - test -f ${PREFIX}/lib/libserf-1${SHLIB_EXT}   # [unix]
 
     - conda inspect linkages -p ${PREFIX} serf  # [not win]
-    - conda inspect objects -p ${PREFIX} serf   # [osx]
+    # conda inspect objects no longer supported
+    #- conda inspect objects -p ${PREFIX} serf   # [osx]
 
 about:
   home: http://serf.apache.org/
