@@ -9,30 +9,12 @@
      if target in build_targets:
        return PathVariable.PathIsDirCreate(key, val, env)
      else:
-@@ -157,6 +157,8 @@
+@@ -166,6 +166,8 @@
                    CPPPATH=['.', ],
                    )
- 
+
 +env.Append( ENV = {'PATH': os.environ['PATH'] } )
 +
  env.Append(BUILDERS = {
-     'GenDef' : 
+     'GenDef' :
        Builder(action = sys.executable + ' build/gen_def.py $SOURCES > $TARGET',
-@@ -166,7 +168,7 @@
- match = re.search('SERF_MAJOR_VERSION ([0-9]+).*'
-                   'SERF_MINOR_VERSION ([0-9]+).*'
-                   'SERF_PATCH_VERSION ([0-9]+)',
--                  env.File('serf.h').get_contents(),
-+                  env.File('serf.h').get_contents().decode('utf-8'),
-                   re.DOTALL)
- MAJOR, MINOR, PATCH = [int(x) for x in match.groups()]
- env.Append(MAJOR=str(MAJOR))
-@@ -183,7 +185,7 @@
- 
- unknown = opts.UnknownVariables()
- if unknown:
--  print 'Warning: Used unknown variables:', ', '.join(unknown.keys())
-+  print('Warning: Used unknown variables:', ', '.join(list(unknown.keys())))
- 
- apr = str(env['APR'])
- apu = str(env['APU'])
