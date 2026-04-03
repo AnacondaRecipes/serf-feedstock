@@ -1,0 +1,5 @@
+anaconda_config_version: 1
+upstream_sources:
+  - webpage:
+      url: https://archive.apache.org/dist/serf/serf-{}.tar.bz2
+      regex: serf-([\d.]+)\.tar\.bz2
