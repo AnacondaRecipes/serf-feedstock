@@ -19,7 +19,7 @@ build:
     # https://abi-laboratory.pro/tracker/timeline/serf/
     # They keep changing soname b/w patch versions :'(
     - {{ pin_subpackage('serf', max_pin='x.x') }}
-  ignore_run_exports:
+  ignore_run_exports_from:
     - expat
 
 requirements:
