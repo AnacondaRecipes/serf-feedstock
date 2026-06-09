@@ -36,6 +36,7 @@ requirements:
     - openssl # pin handled through openssl run_exports
 
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - cmake       # [win]
 
