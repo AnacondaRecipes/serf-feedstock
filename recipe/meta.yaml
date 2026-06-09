@@ -23,9 +23,6 @@ build:
     - expat
 
 requirements:
-  build:
-    - patch     # [not win]
-    - m2-patch  # [win]
   host:
     - libapr
     - libaprutil

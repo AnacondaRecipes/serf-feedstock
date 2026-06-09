@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.5)
 project (serf)
 
 execute_process(COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/build/gen_def.py
