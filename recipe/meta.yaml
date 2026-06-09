@@ -12,7 +12,7 @@ source:
     - SConstruct.diff
 
 build:
-  number: 0
+  number: 1
   # libapr and libaprutil are not availale n these platforms (as of August 2023).
   skip: True # [s390x or aarch64]
   run_exports:
