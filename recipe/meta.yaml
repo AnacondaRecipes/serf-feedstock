@@ -12,20 +12,17 @@ source:
     - SConstruct.diff
 
 build:
-  number: 0
+  number: 1
   # libapr and libaprutil are not availale n these platforms (as of August 2023).
   skip: True # [s390x or aarch64]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/serf/
     # They keep changing soname b/w patch versions :'(
     - {{ pin_subpackage('serf', max_pin='x.x') }}
-  ignore_run_exports:
+  ignore_run_exports_from:
     - expat
 
 requirements:
-  build:
-    - patch     # [not win]
-    - m2-patch  # [win]
   host:
     - libapr
     - libaprutil
@@ -39,6 +36,7 @@ requirements:
     - openssl # pin handled through openssl run_exports
 
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - cmake       # [win]
 
